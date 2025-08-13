@@ -1,6 +1,9 @@
-title: "Royi2 Blog"
-description: "A test site for GitHub Pages"
-baseurl: "/Royi2"
+﻿title: "Royi2"
+description: "Rocco's blog experiments"
 url: "https://roccocraven.github.io"
+baseurl: "/Royi2"
 theme: minima
-markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+timezone: "Europe/London"
