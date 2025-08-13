@@ -1,7 +1,7 @@
 ﻿title: "Royi2"
 description: "Rocco's blog experiments"
 url: "https://roccocraven.github.io"
-baseurl: "/Royi2"
+baseurl: "/royi2"
 theme: minima
 plugins:
   - jekyll-feed
