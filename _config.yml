@@ -1,0 +1,6 @@
+title: Rocco's Blog
+description: Make, play, share. Mostly: write.
+baseurl: "/Royi2"
+url: "https://Roccocraven.github.io"
+theme: minima
+markdown: kramdown
