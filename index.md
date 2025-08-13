@@ -16,8 +16,7 @@ title: "Royi2"
     <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
   {% endif %}
 
-  <p>
-    <a href="{{ post.url | relative_url }}">Read more…</a>
-  </p>
+  <a class="read-more" href="{{ post.url | relative_url }}">Read more…</a>
 </article>
 {% endfor %}
+
