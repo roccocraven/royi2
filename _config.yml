@@ -1,6 +1,6 @@
-title: Rocco's Blog
-description: Make, play, share. Mostly: write.
+title: "Royi2 Blog"
+description: "A test site for GitHub Pages"
 baseurl: "/Royi2"
-url: "https://Roccocraven.github.io"
+url: "https://roccocraven.github.io"
 theme: minima
 markdown: kramdown
