@@ -3,6 +3,7 @@ layout: modern
 title: "Submit a Post"
 permalink: /submit/
 ---
+{% raw %}
 
 <h2>Share your thoughts</h2>
 <p>Write a blog post below and submit it to appear on Royi2.</p>
@@ -18,21 +19,33 @@ permalink: /submit/
 <p id="response-message" style="margin-top: 1rem;"></p>
 
 <script>
-document.getElementById("guest-post-form").addEventListener("submit", async function(e) {
-  e.preventDefault();
-  const form = e.target;
-  const title = form.title.value.trim();
-  const body = form.body.value.trim();
+  document.getElementById("guest-post-form").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const title = form.title.value.trim();
+    const body = form.body.value.trim();
 
-  if (!title || !body) return;
+    if (!title || !body) {
+      document.getElementById("response-message").textContent = "Please fill out both fields.";
+      return;
+    }
 
-  const response = await fetch("https://silver-boba-68fd60.netlify.app/.netlify/functions/submit-post", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ title, body })
+    try {
+      const response = await fetch("https://silver-boba-68fd60.netlify.app/.netlify/functions/submit-post", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, body })
+      });
+
+      if (!response.ok) throw new Error("Network response was not ok");
+
+      const result = await response.json();
+      document.getElementById("response-message").textContent = result.message || "Post submitted!";
+    } catch (error) {
+      document.getElementById("response-message").textContent = "Submission failed. Please try again.";
+      console.error("Submission error:", error);
+    }
   });
-
-  const result = await response.json();
-  document.getElementById("response-message").textContent = result.message || "Post submitted!";
-});
 </script>
+{% endraw %}
+
