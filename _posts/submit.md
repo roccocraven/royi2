@@ -27,7 +27,6 @@ document.getElementById("guest-post-form").addEventListener("submit", async func
   if (!title || !body) return;
 
   const response = await fetch("https://silver-boba-68fd60.netlify.app/.netlify/functions/submit-post", {
-, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ title, body })
